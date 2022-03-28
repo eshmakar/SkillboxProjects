@@ -13,7 +13,6 @@ public class Main {
         ArrayList<Employe> staff = loadStaffFromFile();
         staff.sort(Comparator.comparing(Employe::getSalary).reversed().thenComparing(Employe::getName));
         staff.forEach(System.out::println);
-
     }
 
     private static ArrayList<Employe> loadStaffFromFile() {
