@@ -3,7 +3,7 @@ import java.util.*;
 public class Company {
 
     private String name;
-    private List<Employee> employeeList = new ArrayList<>();
+    private List<Employee> employeList = new ArrayList<>();
     private long income;
 
     public Company(String name) {
@@ -19,21 +19,21 @@ public class Company {
     }
 
     public List<Employee> getEmployeeList() {
-        return employeeList;
+        return employeList;
     }
 
     public void hire(EmployeeType employeeType) {
-        employeeList.add(EmployeeFactory.createEmployee(this, employeeType));
+        employeList.add(EmployeeFactory.createEmployee(this, employeeType));
     }
 
     public void hireAll(EmployeeType employeeType, int employeeCount) {
         for (int i = 0; i < employeeCount; i++) {
-            employeeList.add(EmployeeFactory.createEmployee(this, employeeType));
+            employeList.add(EmployeeFactory.createEmployee(this, employeeType));
         }
     }
 
     public void fire(int index) {
-        employeeList.remove(index);
+        employeList.remove(index);
     }
 
     public long getIncome() {
@@ -42,7 +42,7 @@ public class Company {
 
     public void setIncome() {
         income = 0;
-        income = employeeList
+        income = employeList
                 .stream()
                 .filter(e -> e instanceof Manager)
                 .map(e -> ((Manager) e).getEarningsForCompany())
@@ -50,7 +50,7 @@ public class Company {
     }
 
     private boolean isErrorStaffCount(int count) {
-        if (count < 0 || count > employeeList.size()) {
+        if (count < 0 || count > employeList.size()) {
             System.out.println("Количество сотрудников превышает фактическое или меньше нуля!");
             return true;
         }
@@ -59,14 +59,14 @@ public class Company {
 
     public List<Employee> getTopSalaryStaff(int count) {
         if (isErrorStaffCount(count)) count = 0;
-        List<Employee> topSalaryStaff = new ArrayList<>(employeeList);
+        List<Employee> topSalaryStaff = new ArrayList<>(employeList);
         topSalaryStaff.sort(Comparator.comparing(Employee::getMonthSalary).reversed());
         return topSalaryStaff.subList(0, count);
     }
 
     public List<Employee> getLowestSalaryStaff(int count) {
         if (isErrorStaffCount(count)) count = 0;
-        List<Employee> lowestSalaryStaff = new ArrayList<>(employeeList);
+        List<Employee> lowestSalaryStaff = new ArrayList<>(employeList);
         lowestSalaryStaff.sort(Comparator.comparing(Employee::getMonthSalary));
         return lowestSalaryStaff.subList(0, count);
     }
