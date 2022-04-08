@@ -1,8 +1,10 @@
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Properties;
+import java.util.stream.Stream;
 
 public class WriteAndReadProperties {
     public static void main(String[] args) throws IOException {
@@ -16,5 +18,6 @@ public class WriteAndReadProperties {
         Properties loading = new Properties();
         loading.load(new FileInputStream("config.properties"));
         System.out.println(loading);
+
     }
 }
