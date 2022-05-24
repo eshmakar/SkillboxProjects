@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="hello@localhost" uuid="a33d327b-4376-4bd7-a8f3-9427ea14e38e">
+    <data-source source="LOCAL" name="skillbox@localhost" uuid="a33d327b-4376-4bd7-a8f3-9427ea14e38e">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/hello</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/skillbox</jdbc-url>
     </data-source>
   </component>
 </project>
