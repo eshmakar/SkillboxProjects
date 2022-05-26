@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>To do list</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<!--<div id = "to-do-list">-->
+<!--    <div th:each="message: ${getAll}">-->
+<!--        <a href="#" class="todo" th:attr="data-id=${message.id}" th:text="${message.title}"></a>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<p th:text="'Hello, ' + ${hello} + '!'" />-->
+
+<div>
+    <div th:each="message : ${getAll}">
+        <span th:text="${message.body}"/>
+    </div>
+</div>
+
+</body>
+</html>

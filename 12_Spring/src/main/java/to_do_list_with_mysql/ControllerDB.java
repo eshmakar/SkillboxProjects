@@ -1,6 +1,8 @@
 package to_do_list_with_mysql;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -8,19 +10,20 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-@RestController
-@RequestMapping("messages")
+@Controller
 public class ControllerDB {
     @Autowired
     private ToDoListRepo toDoListRepo;
 
 
     @GetMapping
-    public List<ToDoListWithDB> getAll() {
+    public String getAll(Model model) {
         List<ToDoListWithDB> allList = new ArrayList<>();
         Iterable<ToDoListWithDB> all = toDoListRepo.findAll();
         all.forEach(allList::add);
-        return allList;
+        model.addAttribute("getAll", allList);
+        model.addAttribute("hello","hello");
+        return "index";
     }
 
     @GetMapping("/{id}")
